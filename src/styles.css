@@ -1,1 +1,16 @@
 /* You can add global styles to this file, and also import other style files */
+body {
+  background: url("/b.jpg");
+}
+
+.h-5 {
+  height: 5% !important;
+}
+
+.h-70 {
+  height: 70% !important;
+}
+
+.h-95 {
+  height: 95% !important;
+}
