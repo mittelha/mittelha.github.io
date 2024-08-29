@@ -1,16 +1,26 @@
 /* You can add global styles to this file, and also import other style files */
 body {
-  background: url("/b.jpg");
+    background: url("/b.jpg");
+    background-size: cover;
 }
 
 .h-5 {
-  height: 5% !important;
+    height: 5% !important;
 }
 
 .h-70 {
-  height: 70% !important;
+    height: 70% !important;
 }
 
 .h-95 {
-  height: 95% !important;
+    height: 95% !important;
+}
+
+html,
+body {
+    height: 100%;
+}
+body {
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
 }
