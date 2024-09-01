@@ -1,46 +1,16 @@
-@if (displayRules) {
-
-<div
-  class="w-100 h-95 d-flex justify-content-center align-items-center flex-column"
->
-  <app-rules></app-rules>
-  <button class="btn btn-primary" (click)="affichageRegles(false)">
-    Retour
-  </button>
+<div class="w-100 h-95">
+    @if (displayRules) {
+    <app-rules
+        class="w-100 h-100"
+        (retour)="affichageRegles(false)"
+    ></app-rules>
+    } @else {
+    <app-sphinx class="w-100 h-100" [ecranEtroit]="ecranEtroit"></app-sphinx>
+    }
 </div>
-
-} @else {
-
-<div
-  class="w-100 h-25 d-flex justify-content-center align-items-center flex-column"
->
-  <div class="h5 text-secondary mb-3">
-    Auriez-vous quelque chose à me dire...?
-  </div>
-  <input
-    class="form-control w-50 mb-3"
-    type="text"
-    placeholder="Entrez votre message ici..."
-    [(ngModel)]="question"
-  />
-  <button class="btn btn-light" (click)="verifierQuestion()">
-    J'ai de la chance ?
-  </button>
-</div>
-<div
-  class="w-100 h-70 d-flex justify-content-center align-items-start overflow-auto"
->
-  @if (reponse.reponse && reponse.style) {
-  <img [class]="reponse.style" [src]="reponse.reponse" alt="Réponse..." />
-  }
-</div>
-}
-
-<div
-  class="w-100 h-5 d-flex justify-content-center align-items-center overflow-auto"
->
-  Copyright © ??? -&nbsp;
-  <a class="text-reset text-decoration-none" (click)="affichageRegles(true)"
-    >Mentions légales</a
-  >
+<div class="w-100 h-5 d-flex justify-content-center align-items-center">
+    Copyright © ??? -&nbsp;
+    <a class="text-reset text-decoration-none" (click)="affichageRegles(true)">
+        Mentions légales
+    </a>
 </div>

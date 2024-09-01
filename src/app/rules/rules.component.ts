@@ -1,10 +1,17 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, EventEmitter, Output } from '@angular/core';
 
 @Component({
-  selector: 'app-rules',
-  standalone: true,
-  imports: [],
-  templateUrl: './rules.component.html',
-  styleUrl: './rules.component.css',
+    selector: 'app-rules',
+    standalone: true,
+    imports: [],
+    templateUrl: './rules.component.html',
+    styleUrl: './rules.component.css',
 })
-export class RulesComponent { }
+export class RulesComponent {
+    @Output()
+    retour: EventEmitter<any> = new EventEmitter(undefined);
+
+    onRetour() {
+        this.retour.emit(true);
+    }
+}
