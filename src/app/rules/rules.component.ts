@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, EventEmitter, Output } from '@angular/core';
+import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
     selector: 'app-rules',
@@ -8,6 +8,9 @@ import { ChangeDetectionStrategy, Component, EventEmitter, Output } from '@angul
     styleUrl: './rules.component.css',
 })
 export class RulesComponent {
+    @Input()
+    ecranEtroit: boolean = false;
+
     @Output()
     retour: EventEmitter<any> = new EventEmitter(undefined);
 

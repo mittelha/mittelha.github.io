@@ -1,3 +1,8 @@
 :host {
-  display: block;
+    display: block;
+}
+
+.p-xlarge {
+    padding-left: 200px;
+    padding-right: 200px;
 }

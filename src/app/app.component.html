@@ -2,6 +2,7 @@
     @if (displayRules) {
     <app-rules
         class="w-100 h-100"
+        [ecranEtroit]="ecranEtroit"
         (retour)="affichageRegles(false)"
     ></app-rules>
     } @else {
