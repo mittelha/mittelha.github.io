@@ -22,7 +22,6 @@ export class AppComponent implements OnInit {
             .observe([Breakpoints.XSmall, Breakpoints.Small, Breakpoints.Medium, Breakpoints.Large, Breakpoints.XLarge])
             .subscribe((result) => {
                 this.ecranEtroit = result.breakpoints[Breakpoints.XSmall] || result.breakpoints[Breakpoints.Small];
-                console.log('ecranEtroit', this.ecranEtroit);
             });
     }
 

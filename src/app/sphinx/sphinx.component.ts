@@ -1,6 +1,8 @@
 import { CommonModule } from '@angular/common';
 import { ChangeDetectionStrategy, Component, HostListener, Input } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { FaqService } from '../core/faq.service';
+import { read } from '../../main';
 
 @Component({
     selector: 'app-sphinx',
@@ -19,6 +21,8 @@ export class SphinxComponent {
     question: string = '';
     reponse: string = '';
 
+    constructor(private faqService: FaqService) { }
+
     @HostListener('document:keyup', ['$event'])
     onKeyUp(event: KeyboardEvent) {
         if (event.key === 'Enter') {
@@ -32,24 +36,8 @@ export class SphinxComponent {
                 .normalize('NFD')
                 .replace(/\p{Diacritic}/gu, '')
                 .toUpperCase();
-            switch (test) {
-                case 'BAYONNE':
-                    this.reponse = '/r.jpg';
-                    break;
-                case 'GIBERT':
-                    this.reponse = '/g.jpg';
-                    break;
-                case 'TECH':
-                    this.reponse = '/t.jpg';
-                    break;
-                case 'AMOUR':
-                    this.reponse = '/a.jpg';
-                    break;
-                default:
-                    const i = Math.floor(Math.random() * 6) + 1;
-                    this.reponse = `/no${i}.gif`;
-                    break;
-            }
+            const ret = this.faqService.getR(read(test));
+            this.reponse = ret ? ret.reponse + '.jpg' : `no${Math.floor(Math.random() * 6) + 1}.gif`;
         }
     }
 }
