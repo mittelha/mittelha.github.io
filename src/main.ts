@@ -7,13 +7,20 @@ import { Md5 } from 'ts-md5';
 
 export const read = (str: string) => '' + new Md5().appendStr(str).end();
 
-bootstrapApplication(AppComponent, appConfig)
-    .catch((err) => console.error(err));
+bootstrapApplication(AppComponent, appConfig).catch((err) =>
+    console.error(err)
+);
 
 document.onkeydown = (event: KeyboardEvent) => {
-    if (event.key === 'PrintScreen' || event.key === 'F12' || (event.ctrlKey && event.shiftKey && event.key === 'I')) {
+    if (
+        event.key === 'PrintScreen' ||
+        event.key === 'F12' ||
+        (event.ctrlKey &&
+            event.shiftKey &&
+            (event.key === 'I' || event.key === 'J'))
+    ) {
         event.preventDefault();
         return false;
     }
     return true;
-}
+};

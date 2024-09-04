@@ -1,5 +1,10 @@
 import { CommonModule } from '@angular/common';
-import { ChangeDetectionStrategy, Component, HostListener, Input } from '@angular/core';
+import {
+    ChangeDetectionStrategy,
+    Component,
+    HostListener,
+    Input,
+} from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { FaqService } from '../core/faq.service';
 import { read } from '../../main';
@@ -7,9 +12,7 @@ import { read } from '../../main';
 @Component({
     selector: 'app-sphinx',
     standalone: true,
-    imports: [
-        CommonModule, FormsModule
-    ],
+    imports: [CommonModule, FormsModule],
     templateUrl: './sphinx.component.html',
     styleUrl: './sphinx.component.css',
     changeDetection: ChangeDetectionStrategy.OnPush,
@@ -33,6 +36,7 @@ export class SphinxComponent {
     verifierQuestion() {
         if (this.question) {
             const test = this.question
+                .trim()
                 .normalize('NFD')
                 .replace(/\p{Diacritic}/gu, '')
                 .toUpperCase();
