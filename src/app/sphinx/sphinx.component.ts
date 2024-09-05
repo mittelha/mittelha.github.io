@@ -7,7 +7,7 @@ import {
 } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { FaqService } from '../core/faq.service';
-import { read } from '../../main';
+import { read, simpler } from '../../main';
 
 @Component({
     selector: 'app-sphinx',
@@ -24,7 +24,7 @@ export class SphinxComponent {
     question: string = '';
     reponse: string = '';
 
-    constructor(private faqService: FaqService) { }
+    constructor(private faqService: FaqService) {}
 
     @HostListener('document:keyup', ['$event'])
     onKeyUp(event: KeyboardEvent) {
@@ -35,13 +35,10 @@ export class SphinxComponent {
 
     verifierQuestion() {
         if (this.question) {
-            const test = this.question
-                .trim()
-                .normalize('NFD')
-                .replace(/\p{Diacritic}/gu, '')
-                .toUpperCase();
-            const ret = this.faqService.getR(read(test));
-            this.reponse = ret ? ret.reponse + '.jpg' : `no${Math.floor(Math.random() * 6) + 1}.gif`;
+            const ret = this.faqService.getR(read(simpler(this.question)));
+            this.reponse = ret
+                ? ret.reponse + '.jpg'
+                : `no${Math.floor(Math.random() * 6) + 1}.gif`;
         }
     }
 }
