@@ -1,17 +1,13 @@
-<div class="w-100 h-95">
-    @if (displayRules) {
-    <app-rules
-        class="w-100 h-100"
-        [ecranEtroit]="ecranEtroit"
-        (retour)="affichageRegles(false)"
-    ></app-rules>
-    } @else {
-    <app-sphinx class="w-100 h-100" [ecranEtroit]="ecranEtroit"></app-sphinx>
-    }
+<div
+    class="w-100 h-95 d-flex justify-content-center align-items-center flex-column text-center"
+>
+    <img class="my-2" height="30%" src="/sphinx.png" />
+    <h3>L'aventure est terminée pour le moment !</h3>
+    <h4>
+        Mais rassurez-vous, le Sphynx reviendra avec de nouvelles aventures !
+    </h4>
 </div>
+
 <div class="w-100 h-5 d-flex justify-content-center align-items-center">
-    Copyright © ??? -&nbsp;
-    <a class="text-reset text-decoration-none" (click)="affichageRegles(true)">
-        Mentions légales
-    </a>
+    Copyright © ??? - Mentions légales
 </div>
